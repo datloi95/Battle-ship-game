@@ -6,4 +6,13 @@ public class BattleshipGame {
 	// write your code here
         System.out.print("test");
     }
+
+    void playGame(){
+        // Initialize the computer ocean
+        Ocean ComputerOcean = new Ocean()
+
+        // Initialize human ocean
+        Ocean humanOcean = new Ocean()
+
+    }
 }

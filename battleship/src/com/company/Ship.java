@@ -12,7 +12,7 @@ public class Ship {
     int length;
     boolean horizontal = false;
 
-    int getBowRow(){
+    int getBowRow() {
         return bowRow;
     }
 
