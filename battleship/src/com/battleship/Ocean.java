@@ -72,39 +72,49 @@ public class Ocean {
 
     }
 
-    boolean isOccupied(int row, int column) {
+//    boolean isOccupied(int row, int column) {
+//
+//    }
+//
+//    boolean shootAt(int row, int column) {
+//
+//    }
 
-    }
-
-    boolean shootAt(int row, int column) {
-
-    }
-
-    int getShotsFired() {
-
-    }
-
-    int getHitCount() {
-
-    }
-
-    int getShipsSunk() {
-
-    }
-
-    boolean isGameOver() {
-
-    }
-
-    Ship[][] getShipArray() {
-
-    }
+//    int getShotsFired() {
+//
+//    }
+//
+//    int getHitCount() {
+//
+//    }
+//
+//    int getShipsSunk() {
+//
+//    }
+//
+//    boolean isGameOver() {
+//
+//    }
+//
+//    Ship[][] getShipArray() {
+//
+//    }
 
     void print() {
 
+        for(int i=0; i<10; i++) {
+            for(int j=0; j<10; j++) {
+                if (i==0){
+                    System.out.print(j + " ");
+                }
+                else if (j==0){
+                    System.out.print(i + " ");
+                }
+                else {
+                    System.out.print(ships[i][j].toString()+ " ");
+                }
+            }
+            System.out.println();
+        }
     }
-
-
-
-
 }
