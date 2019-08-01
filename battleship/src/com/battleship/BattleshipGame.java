@@ -1,4 +1,4 @@
-package com.company;
+package com.battleship;
 
 public class BattleshipGame {
 
@@ -9,10 +9,10 @@ public class BattleshipGame {
 
     void playGame(){
         // Initialize the computer ocean
-        Ocean ComputerOcean = new Ocean()
+        Ocean ComputerOcean = new Ocean();
 
         // Initialize human ocean
-        Ocean humanOcean = new Ocean()
+        Ocean humanOcean = new Ocean();
 
     }
 }

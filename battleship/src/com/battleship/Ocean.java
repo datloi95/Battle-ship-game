@@ -1,4 +1,4 @@
-package com.company;
+package com.battleship;
 
 import java.util.Random;
 
@@ -29,17 +29,19 @@ public class Ocean {
         Random rand = new Random();
 
 
-        int[] sizes = {5,4,3,3,2}
+        int[] sizes = {5,4,3,3,2};
 
         for (int i=0; i<NUMSHIP; i++) {
-            // Obtain a number between [0 - 9].
+
             while(true) {
+                // Obtain a number between [0 - 9].
                 int row = rand.nextInt(10);
                 int col = rand.nextInt(10);
+                boolean horizontal = rand.nextBoolean();
 
                 if (ships[row][col] instanceof EmptySea) {
                     String shipType;
-                    Ship ship;
+                    Ship ship = null;
                     switch (sizes[i]){
                         case 5:
                             shipType = "Aircraft Carrier";
@@ -50,10 +52,6 @@ public class Ocean {
                             ship = new Battleship();
                             break;
                         case 3:
-                            shipType = "Submarine";
-                            ship = new Submarine();
-                            break;
-                        case 3:
                             shipType = "Cruiser";
                             ship = new Cruiser();
                             break;
@@ -61,6 +59,10 @@ public class Ocean {
                             shipType = "Destroyer";
                             ship = new Destroyer();
                             break;
+                    }
+                    if (ship.okToPlaceShipAt(row, col, horizontal, this)) {
+                        ship.placeShipAt(row, col, horizontal, this);
+                        break;
                     }
 
 
