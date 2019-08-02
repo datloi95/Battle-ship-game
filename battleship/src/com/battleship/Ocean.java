@@ -2,11 +2,12 @@ package com.battleship;
 
 import java.util.Random;
 import java.util.*;
+import java.util.Arrays;
 
 public class Ocean {
 
     Ship[][] ships = new Ship[10][10];
-    final int NUMSHIP = 5;
+    final int NUMSHIP = 4;
     int shotsFired;
     int hitCount;
     int shipsSunk;
@@ -31,7 +32,7 @@ public class Ocean {
         Random rand = new Random();
 
 
-        int[] sizes = {5,4,3,3,2};
+        int[] sizes = {5,4,3,2};
 
         for (int i=0; i<NUMSHIP; i++) {
 
@@ -106,22 +107,24 @@ public class Ocean {
         return hitCount;
     }
 
-    int getShipsSunk() {
-
-        for(int i=0; i<shipList.size(); ++i){
-            if (shipList.get(i).isSunk()){
-                shipsSunk++;
-            }
-        }
-        return shipsSunk;
-    }
+//    int getShipsSunk() {
+//
+//        for(int i=0; i<shipList.size(); ++i){
+//            if (shipList.get(i).isSunk()){
+//                shipsSunk++;
+//            }
+//        }
+//        return shipsSunk;
+//    }
 
     boolean isGameOver() {
 
-        if (shipsSunk == 5){
-            return true;
+        for (int i=0; i<shipList.size(); ++i){
+            if (!shipList.get(i).isSunk()){
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 
     Ship[][] getShipArray() {
@@ -143,10 +146,15 @@ public class Ocean {
                     System.out.print((i-1) + " ");
                 }
                 else {
-                    System.out.print(ships[i-1][j-1].toString()+ " ");
+                    System.out.print(ships[i-1][j-1].toString((i-1), (j-1))+ " ");
                 }
             }
             System.out.println();
+        }
+
+        for (int i = 0; i < shipList.size(); i++) {
+            System.out.println(Arrays.toString(shipList.get(i).hit));
+            System.out.println("Sunk state: " + shipList.get(i).isSunk());
         }
     }
 }

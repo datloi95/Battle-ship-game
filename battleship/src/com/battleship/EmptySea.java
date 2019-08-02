@@ -5,6 +5,7 @@ public class EmptySea extends Ship {
     EmptySea() {
         super();
         length = 1;
+        hit = new boolean[length];
     }
 
     @Override

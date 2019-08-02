@@ -27,8 +27,11 @@ public class BattleshipGame {
             System.out.println("Shoot at row " + row + " and column " + column + " ");
             ComputerOcean.shootAt(row,column);
             ComputerOcean.print();
+            if(ComputerOcean.isGameOver()){
+                break;
+            }
         }
-
+        System.out.println(("Game Over!!!"));
         // Initialize human ocean
         //Ocean humanOcean = new Ocean();
 

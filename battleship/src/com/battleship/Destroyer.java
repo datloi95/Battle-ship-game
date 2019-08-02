@@ -1,12 +1,11 @@
 package com.battleship;
 
-import sun.security.krb5.internal.crypto.Des;
-
 public class Destroyer extends Ship {
 
     public Destroyer(){
         super();
         length = 2;
+        hit = new boolean[length];
     }
 
     @Override
@@ -15,24 +14,38 @@ public class Destroyer extends Ship {
     }
 
     @Override
-    public String toString(){
-        if (isSunk()){
+    public String toString(int row, int column){
+
+        int index;
+        if (horizontal){
+            index = column - this.bowColumn;
+        }
+        else{
+            index = row - this.bowRow;
+        }
+        if (hit[index]){
             return "S";
         }
-        return "X";
+        else{
+            return "D";
+        }
+
+
     }
 
     @Override
     void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
 
-        Destroyer destroyer = new Destroyer();
+        this.bowColumn = column;
+        this.bowRow = row;
+        this.horizontal = horizontal;
         for (int i=0; i<length; ++i) {
-            ocean.ships[row][column] = destroyer;
+            ocean.ships[row][column] = this;
             if (horizontal){
-                row += 1;
+                column += 1;
             }
             else {
-                column += 1;
+                row += 1;
             }
         }
     }

@@ -5,6 +5,7 @@ public class Submarine extends Ship {
     public Submarine(){
         super();
         length = 3;
+        hit = new boolean[length];
     }
 
     @Override
@@ -13,24 +14,36 @@ public class Submarine extends Ship {
     }
 
     @Override
-    public String toString(){
-        if (isSunk()){
+    public String toString(int row, int column){
+
+        int index;
+        if (horizontal){
+            index = column - this.bowColumn;
+        }
+        else{
+            index = row - this.bowRow;
+        }
+        if (hit[index]){
             return "S";
         }
-        return "X";
+        else{
+            return "X";
+        }
     }
 
     @Override
     void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
 
-        Submarine submarine = new Submarine();
+        this.bowColumn = column;
+        this.bowRow = row;
+        this.horizontal = horizontal;
         for (int i=0; i<length; ++i) {
-            ocean.ships[row][column] = submarine;
+            ocean.ships[row][column] = this;
             if (horizontal){
-                row += 1;
+                column += 1;
             }
             else {
-                column += 1;
+                row += 1;
             }
         }
     }
