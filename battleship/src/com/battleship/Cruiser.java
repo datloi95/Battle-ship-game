@@ -10,7 +10,7 @@ public class Cruiser extends Ship {
 
     @Override
     String getShipType(){
-        return "cruiser";
+        return "Cruiser";
     }
 
     @Override

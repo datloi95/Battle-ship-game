@@ -10,7 +10,7 @@ public class AircraftCarrier extends Ship {
 
     @Override
     String getShipType(){
-        return "aircraftcarrier";
+        return "Carrier";
     }
 
     @Override
