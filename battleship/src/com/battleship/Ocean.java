@@ -1,6 +1,7 @@
 package com.battleship;
 
 import java.util.Random;
+import java.util.*;
 
 public class Ocean {
 
@@ -9,6 +10,7 @@ public class Ocean {
     int shotsFired;
     int hitCount;
     int shipsSunk;
+    ArrayList<Ship> shipList = new ArrayList<>();
 
     Ocean() {
         shotsFired = 0;
@@ -62,6 +64,7 @@ public class Ocean {
                     }
                     if (ship.okToPlaceShipAt(row, col, horizontal, this)) {
                         ship.placeShipAt(row, col, horizontal, this);
+                        shipList.add(ship);
                         break;
                     }
 
@@ -72,46 +75,75 @@ public class Ocean {
 
     }
 
-//    boolean isOccupied(int row, int column) {
-//
-//    }
-//
-//    boolean shootAt(int row, int column) {
-//
-//    }
+    boolean isOccupied(int row, int column) {
 
-//    int getShotsFired() {
-//
-//    }
-//
-//    int getHitCount() {
-//
-//    }
-//
-//    int getShipsSunk() {
-//
-//    }
-//
-//    boolean isGameOver() {
-//
-//    }
-//
-//    Ship[][] getShipArray() {
-//
-//    }
+        if (ships[row][column] instanceof EmptySea) {
+            return false;
+        }
+        return true;
+    }
+
+    boolean shootAt(int row, int column) {
+
+        shotsFired++;
+        if (isOccupied(row, column)) {
+            if (ships[row][column].shootAt(row, column)){
+                hitCount++;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    int getShotsFired() {
+
+        return shotsFired;
+    }
+
+    int getHitCount() {
+
+        return hitCount;
+    }
+
+    int getShipsSunk() {
+
+        for(int i=0; i<shipList.size(); ++i){
+            if (shipList.get(i).isSunk()){
+                shipsSunk++;
+            }
+        }
+        return shipsSunk;
+    }
+
+    boolean isGameOver() {
+
+        if (shipsSunk == 5){
+            return true;
+        }
+        return false;
+    }
+
+    Ship[][] getShipArray() {
+        return ships;
+    }
 
     void print() {
 
-        for(int i=0; i<10; i++) {
-            for(int j=0; j<10; j++) {
+        for(int i=0; i<11; i++) {
+            for(int j=0; j<11; j++) {
+                if (i==0 && j==0){
+                    System.out.print("  ");
+                    continue;
+                }
                 if (i==0){
-                    System.out.print(j + " ");
+                    System.out.print((j-1) + " ");
                 }
                 else if (j==0){
-                    System.out.print(i + " ");
+                    System.out.print((i-1) + " ");
                 }
                 else {
-                    System.out.print(ships[i][j].toString()+ " ");
+                    System.out.print(ships[i-1][j-1].toString()+ " ");
                 }
             }
             System.out.println();

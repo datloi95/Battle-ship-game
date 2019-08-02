@@ -23,8 +23,9 @@ public class Battleship extends Ship {
     @Override
     void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
 
+        Battleship battleship = new Battleship();
         for (int i=0; i<length; ++i) {
-            ocean.ships[row][column] = new Destroyer();
+            ocean.ships[row][column] = battleship;
             if (horizontal){
                 row += 1;
             }

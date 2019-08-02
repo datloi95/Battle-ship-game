@@ -23,8 +23,9 @@ public class Cruiser extends Ship {
     @Override
     void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
 
+        Cruiser cruiser = new Cruiser();
         for (int i=0; i<length; ++i) {
-            ocean.ships[row][column] = new Cruiser();
+            ocean.ships[row][column] = cruiser;
             if (horizontal){
                 row += 1;
             }

@@ -23,8 +23,9 @@ public class Submarine extends Ship {
     @Override
     void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
 
+        Submarine submarine = new Submarine();
         for (int i=0; i<length; ++i) {
-            ocean.ships[row][column] = new Submarine();
+            ocean.ships[row][column] = submarine;
             if (horizontal){
                 row += 1;
             }

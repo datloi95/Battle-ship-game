@@ -1,16 +1,16 @@
 package com.battleship;
 
-//import java.util.*;
+
 
 
 public class Ship {
 
-    //ArrayList<Location> ship = new ArrayList<>();
 
     int bowRow;
     int bowColumn;
     int length;
     boolean horizontal = false;
+    boolean [] hit = new boolean[4];;
 
     int getBowRow() {
         return bowRow;
@@ -47,6 +47,8 @@ public class Ship {
 
     void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
 
+        bowColumn = column;
+        bowRow = row;
         for (int i=0; i<length; ++i) {
             ocean.ships[row][column] = new Ship();
             if (horizontal){
@@ -58,17 +60,32 @@ public class Ship {
         }
     }
 
+    boolean isSunk(){
 
-   boolean isSunk(){
-
-        return false;
+        for (int i=0; i<length; ++i){
+            if (!hit[i]){
+                return  false;
+            }
+        }
+        return true;
     }
 
 
     boolean shootAt(int row, int column){
 
+        int index;
+        if (horizontal){
+            index = column - bowColumn;
+        }
+        else{
+            index = row - bowRow;
+        }
+        if (!hit[index]){
+            hit[index] = true;
+            int a = 3;
+            return true;
+        }
         return false;
     }
-
 
 }

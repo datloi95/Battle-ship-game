@@ -23,8 +23,9 @@ public class AircraftCarrier extends Ship {
     @Override
     void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
 
+        AircraftCarrier aircraftCarrier = new AircraftCarrier();
         for (int i=0; i<length; ++i) {
-            ocean.ships[row][column] = new AircraftCarrier();
+            ocean.ships[row][column] = aircraftCarrier;
             if (horizontal){
                 row += 1;
             }
