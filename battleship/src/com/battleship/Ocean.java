@@ -107,15 +107,15 @@ public class Ocean {
         return hitCount;
     }
 
-//    int getShipsSunk() {
-//
-//        for(int i=0; i<shipList.size(); ++i){
-//            if (shipList.get(i).isSunk()){
-//                shipsSunk++;
-//            }
-//        }
-//        return shipsSunk;
-//    }
+    int getShipsSunk() {
+
+        for(int i=0; i<shipList.size(); ++i){
+            if (shipList.get(i).isSunk()){
+                shipsSunk++;
+            }
+        }
+        return shipsSunk;
+    }
 
     boolean isGameOver() {
 

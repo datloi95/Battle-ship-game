@@ -8,6 +8,8 @@ public class ComputerAI {
     Ship[][] ships = new Ship[10][10];
 
     ArrayList<Integer> shipLength = new ArrayList<>();
+    int pointShot;
+    int pointHit;
 
     ComputerAI(){
         shipLength.add(5);
@@ -22,6 +24,18 @@ public class ComputerAI {
         }
     }
 
+    void play(Ocean humanOcean){
+
+        int opponentShipSunk = humanOcean.getShipsSunk();
+
+    }
+
+    int[] shootCoordinate(){
+            int coordinate[] = {0,0};
+
+
+        return coordinate;
+    }
 
 
 }
