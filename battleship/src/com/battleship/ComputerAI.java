@@ -8,6 +8,8 @@ public class ComputerAI {
     Ship[][] ships = new Ship[10][10];
 
     ArrayList<Integer> shipLength = new ArrayList<>();
+    Stack<int[]> possibleHits = new Stack<int[]>();
+    String computerMode = "Hunt";
     int pointShot;
     int pointHit;
 
@@ -30,11 +32,46 @@ public class ComputerAI {
 
     }
 
+    void changeMode(int humanShipSunk, int humanHitCount, int humanShotFired, int[] prevCoordinate){
+
+        int row = prevCoordinate[0];
+        int col = prevCoordinate[1];
+
+        for (int i=1; i <= 5; i++) {
+            if ((col - i) >= 0 && (col - i) < 10) {
+                int[] point1 = {row, col - i};
+                possibleHits.push(point1);
+            }
+            if ((col + i) >= 0 && (col + i) < 10) {
+                int[] point2 = {row, col + i};
+                possibleHits.push(point2);
+            }
+            if ((row - i) >= 0 && (row - i) < 10) {
+                int[] point3 = {row - i, col};
+                possibleHits.push(point3);
+            }
+            if ((row + i) >= 0 && (row + i) < 10) {
+                int[] point4 = {row + i, col};
+                possibleHits.push(point4);
+            }
+        }
+    }
+
     int[] shootCoordinate(){
-            int coordinate[] = {0,0};
+        Random rand = new Random();
+        System.out.println("Computer mode: " + computerMode);
+        if(computerMode == "Target"){
+            if (!possibleHits.empty()){
+                return possibleHits.pop();
+            }
 
+        }
 
+        int row = rand.nextInt(10);
+        int col = rand.nextInt(10);
+        int coordinate[] = {row, col};
         return coordinate;
+
     }
 
 

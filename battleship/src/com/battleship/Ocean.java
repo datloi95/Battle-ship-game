@@ -108,12 +108,13 @@ public class Ocean {
     }
 
     int getShipsSunk() {
-
+        int localShipSunk = 0;
         for(int i=0; i<shipList.size(); ++i){
             if (shipList.get(i).isSunk()){
-                shipsSunk++;
+                localShipSunk++;
             }
         }
+        shipsSunk = localShipSunk;
         return shipsSunk;
     }
 
@@ -152,9 +153,9 @@ public class Ocean {
             System.out.println();
         }
 
-        for (int i = 0; i < shipList.size(); i++) {
-            System.out.println(Arrays.toString(shipList.get(i).hit));
-            System.out.println("Sunk state: " + shipList.get(i).isSunk());
-        }
+//        for (int i = 0; i < shipList.size(); i++) {
+//            System.out.println(Arrays.toString(shipList.get(i).hit));
+//            System.out.println("Sunk state: " + shipList.get(i).isSunk());
+//        }
     }
 }

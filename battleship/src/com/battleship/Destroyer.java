@@ -27,7 +27,7 @@ public class Destroyer extends Ship {
             return "S";
         }
         else{
-            return "D";
+            return "X";
         }
 
 

@@ -27,7 +27,7 @@ public class Cruiser extends Ship {
             return "S";
         }
         else{
-            return "C";
+            return "X";
         }
     }
 

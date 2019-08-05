@@ -27,7 +27,7 @@ public class Battleship extends Ship {
             return "S";
         }
         else{
-            return "B";
+            return "X";
         }
     }
 

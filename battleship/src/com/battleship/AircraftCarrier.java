@@ -27,7 +27,7 @@ public class AircraftCarrier extends Ship {
             return "S";
         }
         else{
-            return "A";
+            return "X";
         }
     }
 
