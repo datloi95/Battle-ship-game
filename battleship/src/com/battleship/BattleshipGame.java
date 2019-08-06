@@ -1,6 +1,13 @@
 package com.battleship;
 import java.util.*;
 
+/**
+ * The BattleshipGame program implements a battleship game
+ * with computer AI.
+ *
+ * @author  Dat Loi
+ * @since   2019-08-06
+ */
 public class BattleshipGame {
 
     public static void main(String[] args) {
@@ -9,12 +16,15 @@ public class BattleshipGame {
         game.playGame();
     }
 
+    /**
+     * This method will drive the battleship game with computer
+     */
     void playGame(){
         // Initialize the Computer ocean and its input
         Ocean ComputerOcean = new Ocean();
         ComputerOcean.placeAllShipsRandomly();
-        System.out.println("%%%%%%%%% Computer Board %%%%%%%%%%");
-        ComputerOcean.print();
+//        System.out.println("%%%%%%%%% Computer Board %%%%%%%%%%");
+//        ComputerOcean.print();
 
         Scanner userRow = new Scanner(System.in);
         Scanner userCol = new Scanner(System.in);
@@ -73,8 +83,8 @@ public class BattleshipGame {
 
                 }
 
-                System.out.println("%%%%%%%%% Computer Board %%%%%%%%%%");
-                ComputerOcean.print();
+//                System.out.println("%%%%%%%%% Computer Board %%%%%%%%%%");
+//                ComputerOcean.print();
                 System.out.println("\n%%%%%%%%% Human Board %%%%%%%%%%");
                 HumanOcean.print();
 

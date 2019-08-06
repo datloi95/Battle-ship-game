@@ -4,6 +4,9 @@ import java.util.Random;
 import java.util.*;
 import java.util.Arrays;
 
+/**
+ * Ocean class will generate a map with randomized ships for both human and computer
+ */
 public class Ocean {
 
     Ship[][] ships = new Ship[10][10];
@@ -27,6 +30,9 @@ public class Ocean {
 
     }
 
+    /**
+     * Place all the ship randomly on the 10x10 map
+     */
     void placeAllShipsRandomly() {
 
         Random rand = new Random();
@@ -76,6 +82,12 @@ public class Ocean {
 
     }
 
+    /**
+     * Check if the target grid is occupied
+     * @param row Row number
+     * @param column Column number
+     * @return boolean This returns whether the grid is occupied or not
+     */
     boolean isOccupied(int row, int column) {
 
         if (ships[row][column] instanceof EmptySea) {
@@ -84,6 +96,12 @@ public class Ocean {
         return true;
     }
 
+    /**
+     *
+     * @param row Row number
+     * @param column Column number
+     * @return boolean This returns whether the target shot is a hit or not
+     */
     boolean shootAt(int row, int column) {
 
         shotsFired++;
@@ -97,16 +115,28 @@ public class Ocean {
         return false;
     }
 
+    /**
+     * This method returns the number of shots already fired
+     * @return int number of shots fired
+     */
     int getShotsFired() {
 
         return shotsFired;
     }
 
+    /**
+     * This method returns the number of hit
+     * @return int number of hits
+     */
     int getHitCount() {
 
         return hitCount;
     }
 
+    /**
+     * This method returns the number of ships sunk of the player
+     * @return int num
+     */
     int getShipsSunk() {
         int localShipSunk = 0;
         for(int i=0; i<shipList.size(); ++i){
@@ -118,6 +148,10 @@ public class Ocean {
         return shipsSunk;
     }
 
+    /**
+     * This medthod is to check if the game ends
+     * @return boolean check if the game ends
+     */
     boolean isGameOver() {
 
         for (int i=0; i<shipList.size(); ++i){
@@ -128,10 +162,17 @@ public class Ocean {
         return true;
     }
 
+    /**
+     * This method is to return ships array from ocean map
+     * @return Ship[][] return ship array
+     */
     Ship[][] getShipArray() {
         return ships;
     }
 
+    /**
+     * This method is to print out the player's map for visual display
+     */
     void print() {
 
         for(int i=0; i<11; i++) {

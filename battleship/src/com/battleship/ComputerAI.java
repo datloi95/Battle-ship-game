@@ -2,6 +2,9 @@ package com.battleship;
 
 import java.util.*;
 
+/**
+ * This class provides utility methods for computer AI
+ */
 public class ComputerAI {
 
     String mode;
@@ -64,15 +67,11 @@ public class ComputerAI {
             if (!possibleHits.empty()){
                 return possibleHits.pop();
             }
-
         }
 
         int row = rand.nextInt(10);
         int col = rand.nextInt(10);
         int coordinate[] = {row, col};
         return coordinate;
-
     }
-
-
 }
