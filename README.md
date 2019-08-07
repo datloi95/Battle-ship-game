@@ -1,2 +1,2 @@
 # Battle-ship-game
-Battleship game built in Java playing with a "AI" computer.
+Battleship game built in Java playing with an "AI" computer.
