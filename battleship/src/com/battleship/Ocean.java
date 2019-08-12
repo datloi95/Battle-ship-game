@@ -2,7 +2,6 @@ package com.battleship;
 
 import java.util.Random;
 import java.util.*;
-import java.util.Arrays;
 
 /**
  * Ocean class will generate a map with randomized ships for both human and computer
@@ -11,10 +10,10 @@ public class Ocean {
 
     Ship[][] ships = new Ship[10][10];
     final int NUMSHIP = 4;
-    int shotsFired;
-    int hitCount;
-    int shipsSunk;
-    ArrayList<Ship> shipList = new ArrayList<>();
+    private int shotsFired;
+    private int hitCount;
+    private int shipsSunk;
+    private ArrayList<Ship> shipList = new ArrayList<>();
 
     Ocean() {
         shotsFired = 0;

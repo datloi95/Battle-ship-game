@@ -63,12 +63,12 @@ public class BattleshipGame {
 
 
                 // Computer play
-                int computerCoordiates[] = computerAI.shootCoordinate();
+                int[] computerCoordiates = computerAI.shootCoordinate();
 
                 System.out.println("Computer Play turn. Row: "+ computerCoordiates[0] + ".Column: "+ computerCoordiates[1]);
                 if (HumanOcean.shootAt(computerCoordiates[0],computerCoordiates[1])){
                     System.out.println("HIT");
-                    if (computerMode == "Hunt"){
+                    if (computerMode.equals("Hunt")){
                         computerMode = "Target";
                         computerAI.computerMode = computerMode;
                         computerAI.changeMode(HumanOcean.getShipsSunk(), HumanOcean.getHitCount(), HumanOcean.getShotsFired(), computerCoordiates);

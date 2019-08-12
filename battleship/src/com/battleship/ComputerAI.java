@@ -8,10 +8,10 @@ import java.util.*;
 public class ComputerAI {
 
     String mode;
-    Ship[][] ships = new Ship[10][10];
+    private Ship[][] ships = new Ship[10][10];
 
-    ArrayList<Integer> shipLength = new ArrayList<>();
-    Stack<int[]> possibleHits = new Stack<int[]>();
+    private ArrayList<Integer> shipLength = new ArrayList<>();
+    private Stack<int[]> possibleHits = new Stack<int[]>();
     String computerMode = "Hunt";
     int pointShot;
     int pointHit;
